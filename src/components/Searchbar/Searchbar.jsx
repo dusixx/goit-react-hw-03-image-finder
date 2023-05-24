@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import { oneOfType, string, number, func } from 'prop-types';
-import { IconSearch } from 'styles/icons';
+import { BiSearch as IconSearch } from 'react-icons/bi';
 import { SearchBtn, SearchForm } from './Searchbar.styled';
 import { TextField } from 'components/TextField/TextField';
 

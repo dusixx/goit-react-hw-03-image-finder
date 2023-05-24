@@ -1,6 +1,6 @@
 import { func, string } from 'prop-types';
 import { ClearBtn, InputWrapper, Input, Field } from './TextField.styled';
-import { IconClose } from 'styles/icons';
+import { VscClose as IconClose } from 'react-icons/vsc';
 
 export const TextField = ({ value, type, onChange, ...restProps }) => {
   return (

@@ -1,4 +1,3 @@
-export * from './notify';
 export { default as PixabayService } from './pixabaySrv';
 
 export const isStr = v => typeof v === 'string';

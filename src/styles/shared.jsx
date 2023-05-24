@@ -57,33 +57,3 @@ export const ButtonPrimary = styled(ButtonBase)`
     /* filter: brightness(1.1); */
   }
 `;
-
-export const ButtonSecondary = styled(ButtonPrimary)`
-  background-color: #cccccc;
-  color: var(--color-black);
-  transition-property: filter;
-
-  &:focus-visible,
-  &:hover {
-    background-color: #cccccc;
-    filter: brightness(0.9);
-  }
-`;
-
-// Misc
-
-export const Block = styled.div`
-  ${FlexCentered(`align-items: unset`)};
-
-  width: ${({ width }) => calcCSSValue(width) || '100%'};
-  height: ${({ height }) => calcCSSValue(height)};
-  max-height: ${({ maxHeight }) => calcCSSValue(maxHeight)};
-
-  margin-bottom: ${({ marginBottom }) => calcCSSValue(marginBottom)};
-  margin-top: ${({ marginTop }) => calcCSSValue(marginTop)};
-
-  background-color: white;
-  box-shadow: var(--box-shadow);
-  border-radius: var(--border-radius);
-  overflow: auto;
-`;
