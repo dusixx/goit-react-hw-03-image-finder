@@ -34,11 +34,11 @@ export default class Modal extends Component {
   };
 
   render() {
-    const { children } = this.props;
+    const { children, bgColor } = this.props;
     const { handleBackdropClick } = this;
 
     return createPortal(
-      <Backdrop onClick={handleBackdropClick}>
+      <Backdrop onClick={handleBackdropClick} bgColor={bgColor}>
         <Container>{children}</Container>
       </Backdrop>,
       rootModal

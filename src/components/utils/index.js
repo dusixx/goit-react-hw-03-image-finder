@@ -1,4 +1,5 @@
 export * from './notify';
+export { default as PixabayService } from './pixabaySrv';
 
 export const isStr = v => typeof v === 'string';
 export const isNum = v => !isNaN(v - parseFloat(v));

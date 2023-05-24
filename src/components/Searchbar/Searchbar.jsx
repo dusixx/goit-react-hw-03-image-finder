@@ -1,23 +1,36 @@
 import { Component } from 'react';
+import { oneOfType, string, number, func } from 'prop-types';
 import { IconSearch } from 'styles/icons';
 import { SearchBtn, SearchForm } from './Searchbar.styled';
 import { TextField } from 'components/TextField/TextField';
 
 export default class Searchbar extends Component {
+  static propTypes = {
+    width: oneOfType([string, number]),
+    height: oneOfType([string, number]),
+    onSubmit: func,
+    onChange: func,
+  };
+
   state = { searchQuery: '' };
 
   handleSearchQueryChange = e => {
-    this.setState({ searchQuery: e?.target.value || '' });
+    const { onChange } = this.props;
+    const searchQuery = e?.target.value.trim() || '';
+    this.setState({ searchQuery });
+    onChange && onChange(e, searchQuery);
   };
 
   handleFormSubmit = e => {
-    const { onSubmit } = this.props;
     e.preventDefault();
-    onSubmit && onSubmit(e, this.state.searchQuery.trim());
+    const { onSubmit } = this.props;
+    const searchQuery = this.state.searchQuery.trim();
+    onSubmit && onSubmit(e, searchQuery);
   };
 
   render() {
-    const { width, height, ...restProps } = this.props;
+    // извлекаем onChange, чтобы не перебивал текущий при прокидывании restProps (*)
+    const { width, height, onChange, ...restProps } = this.props;
     const { handleSearchQueryChange, handleFormSubmit } = this;
     const { searchQuery } = this.state;
 
@@ -28,7 +41,7 @@ export default class Searchbar extends Component {
           placeholder="Search images..."
           onChange={handleSearchQueryChange}
           value={searchQuery}
-          {...restProps}
+          {...restProps} // (*)
         />
         <SearchBtn type="submit" disabled={!searchQuery}>
           <IconSearch size="95%" />

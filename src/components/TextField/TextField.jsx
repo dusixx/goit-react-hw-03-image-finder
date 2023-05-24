@@ -13,7 +13,8 @@ export const TextField = ({ value, type, onChange, ...restProps }) => {
           {...restProps}
         />
         {value && (
-          <ClearBtn onClick={() => onChange(null)}>
+          // NOTE: тут обязательно type="button", по-умолчанию ставит "submit"
+          <ClearBtn type="button" onClick={() => onChange(null)}>
             <IconClose size="100%" />
           </ClearBtn>
         )}

@@ -7,8 +7,9 @@ export const Backdrop = styled.div`
 
   width: 100%;
   height: 100%;
+  z-index: 999;
 
-  background-color: rgb(0 0 0 / 0.5);
+  background-color: ${({ bgColor }) => bgColor || 'rgb(0 0 0 / 0.5)'};
   overflow: auto;
 `;
 

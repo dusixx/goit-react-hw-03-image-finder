@@ -2,8 +2,6 @@ import styled from '@emotion/styled';
 import { ButtonBase } from 'styles/shared';
 
 export const Field = styled.label`
-  display: flex;
-  flex-direction: column;
   width: ${({ width }) => width || '100%'};
   height: ${({ height }) => height || '100%'};
 `;
@@ -21,7 +19,7 @@ export const InputWrapper = styled.div`
 export const Input = styled.input`
   height: 100%;
   width: 100%;
-  padding: 0 12px 0 12px;
+  padding: 0 40px 0 20px;
 
   font-family: inherit;
   font-size: inherit;
@@ -29,6 +27,7 @@ export const Input = styled.input`
 
   border-bottom-left-radius: var(--border-radius);
   border-top-left-radius: var(--border-radius);
+
   border: unset;
   outline: none;
 
