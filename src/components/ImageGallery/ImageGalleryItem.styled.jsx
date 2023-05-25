@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { FlexCentered } from 'styles/shared';
 
 export const Link = styled.a`
   display: block;
@@ -15,7 +16,7 @@ export const Image = styled.img`
 `;
 
 export const Thumb = styled.div`
-  position: relative;
+  position: absolute;
 
   & img {
     height: 70vh;
@@ -42,4 +43,15 @@ export const Desc = styled.p`
   background-color: var(--color-black);
   color: white;
   opacity: 0.9;
+`;
+
+export const Container = styled.div`
+  position: relative;
+  ${FlexCentered()};
+
+  & :nth-of-type() {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
 `;

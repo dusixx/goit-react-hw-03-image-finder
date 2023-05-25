@@ -1,7 +1,8 @@
 import { Component } from 'react';
 import { string } from 'prop-types';
 import Modal from 'components/Modal/Modal';
-import { Link, Image, Thumb, Desc } from './ImageGalleryItem.styled';
+import { Link, Image, Thumb, Desc, Container } from './ImageGalleryItem.styled';
+import { Spinner } from 'components/Loader/Loader';
 
 const COLOR_MODAL_BG = 'rgb(255 255 255 / 0.7)';
 
@@ -23,10 +24,17 @@ export default class ImageGalleryItem extends Component {
     this.setState({ clickedImage, showModal: true });
   };
 
+  handleModalImgLoaded = e => {
+    this.setState(cur => ({
+      clickedImage: { ...cur.clickedImage, isLoaded: true },
+    }));
+  };
+
   render() {
-    const { handleImageClick, handleModalClose } = this;
+    const { handleImageClick, handleModalClose, handleModalImgLoaded } = this;
     const { url, tags, preview } = this.props;
     const { clickedImage, showModal } = this.state;
+    // const style = { position: 'absolute', top: 0, left: 0 };
 
     return (
       <>
@@ -36,10 +44,17 @@ export default class ImageGalleryItem extends Component {
 
         {showModal && (
           <Modal onClose={handleModalClose} bgColor={COLOR_MODAL_BG}>
-            <Thumb>
-              <img src={clickedImage.url} alt={clickedImage.tags} />
-              <Desc>{clickedImage.tags}</Desc>
-            </Thumb>
+            <Container>
+              <Spinner width={40} />
+              <Thumb>
+                <img
+                  src={clickedImage.url}
+                  alt={clickedImage.tags}
+                  onLoad={handleModalImgLoaded}
+                />
+                {clickedImage.isLoaded && <Desc>{clickedImage.tags}</Desc>}
+              </Thumb>
+            </Container>
           </Modal>
         )}
       </>

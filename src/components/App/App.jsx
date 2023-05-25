@@ -94,6 +94,7 @@ export class App extends Component {
       <Container>
         <Loader visible={this.status === status.PENDING} />
 
+        {/* Searchbar */}
         <Header>
           <Searchbar
             height="70%"
@@ -102,8 +103,10 @@ export class App extends Component {
           />
         </Header>
 
+        {/* Gallery */}
         <ImageGallery hits={hits} style={{ marginBottom: '40px' }} />
 
+        {/* Load more */}
         {this.status !== status.IDLE && hits.length > 0 && (
           <Button
             type="button"
