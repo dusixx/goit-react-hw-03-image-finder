@@ -5,7 +5,6 @@ export const List = styled.ul`
   flex-wrap: wrap;
   gap: var(--gallery-items-gap);
   margin-top: calc(var(--header-height) + 10px);
-  margin-bottom: 30px;
   width: 100%;
 `;
 
@@ -48,48 +47,4 @@ export const ListItem = styled.li`
     filter: brightness(1.1);
     transform: scale(1.05);
   }
-`;
-
-export const Link = styled.a`
-  display: block;
-  width: 100%;
-  height: 100%;
-`;
-
-export const Image = styled.img`
-  height: 100%;
-  width: 100%;
-
-  object-fit: cover;
-  object-position: center;
-`;
-
-export const Thumb = styled.div`
-  position: relative;
-
-  & img {
-    height: 70vh;
-    width: auto;
-    max-width: 70vw;
-
-    object-fit: cover;
-    object-position: center;
-  }
-`;
-
-export const Desc = styled.p`
-  position: absolute;
-  bottom: 0;
-  left: 0;
-
-  display: flex;
-  align-items: center;
-
-  width: 100%;
-  height: 30px;
-  padding: 20px;
-
-  background-color: var(--color-black);
-  color: white;
-  opacity: 0.9;
 `;

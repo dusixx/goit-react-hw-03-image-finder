@@ -1,9 +1,8 @@
 import { Component } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
 import { PixabayService } from 'components/utils';
 import Searchbar from 'components/Searchbar/Searchbar';
 import { ImageGallery } from 'components/ImageGallery/ImageGallery';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import { Header, Container, Button } from './App.styled';
 import { Loader } from 'components/Loader/Loader';
 
@@ -97,17 +96,24 @@ export class App extends Component {
 
         <Header>
           <Searchbar
-            height="75%"
+            height="70%"
             onSubmit={handleSearchSubmit}
             onChange={handleSearchQueryChange}
           />
         </Header>
-        <ImageGallery hits={hits} />
+
+        <ImageGallery hits={hits} style={{ marginBottom: '40px' }} />
+
         {this.status !== status.IDLE && hits.length > 0 && (
-          <Button type="button" onClick={() => fetchImages()}>
+          <Button
+            type="button"
+            style={{ marginBottom: '20px' }}
+            onClick={() => fetchImages()}
+          >
             Load more
           </Button>
         )}
+
         <ToastContainer autoClose={1500} />
       </Container>
     );

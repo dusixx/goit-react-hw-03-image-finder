@@ -1,6 +1,5 @@
 import styled from '@emotion/styled';
-import { FlexCentered } from 'styles/shared';
-import { ButtonPrimary } from 'styles/shared';
+import { FlexCentered, ButtonPrimary } from 'styles/shared';
 
 export const Header = styled.header`
   ${FlexCentered()};
@@ -26,6 +25,7 @@ export const Container = styled.div`
 `;
 
 export const Button = styled(ButtonPrimary)`
-  height: 40px;
-  width: 120px;
+  height: 45px;
+  width: 140px;
+  font-size: 15px;
 `;
