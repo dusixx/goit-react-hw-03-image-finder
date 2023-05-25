@@ -30,19 +30,19 @@ export class App extends Component {
   };
 
   componentDidUpdate(_, prevState) {
-    if (this.state.status === status.IDLE) return;
+    const { hits } = this.state;
+
+    if (this.status === status.IDLE) return;
 
     if (this.state.status === status.RESOLVED) {
       if (pbs.isEOSReached) {
         this.status = status.IDLE;
 
-        return toast.info(
-          this.state.hits.length ? MSG_EOS_REACHED : MSG_NO_SEARCH_RESULT
-        );
+        return toast.info(hits.length ? MSG_EOS_REACHED : MSG_NO_SEARCH_RESULT);
       }
     }
 
-    if (this.state.status === status.REJECTED) {
+    if (this.status === status.REJECTED) {
       this.status = status.IDLE;
     }
   }
@@ -74,12 +74,12 @@ export class App extends Component {
   };
 
   handleSearchSubmit = (_, searchQuery) => {
-    pbs.queryParams = {
-      ...initialQueryParams,
-      q: searchQuery,
-    };
-    this.setState({ hits: [] });
-    this.fetchImages();
+    this.setState({ hits: [] }, () =>
+      this.fetchImages({
+        ...initialQueryParams,
+        q: searchQuery,
+      })
+    );
   };
 
   handleSearchQueryChange = (_, query) => {
