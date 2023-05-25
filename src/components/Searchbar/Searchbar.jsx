@@ -36,7 +36,11 @@ export default class Searchbar extends Component {
 
     return (
       <Header>
-        <SearchForm width={width} height={height} onSubmit={handleFormSubmit}>
+        <SearchForm
+          width={width}
+          height={height || '70%'}
+          onSubmit={handleFormSubmit}
+        >
           <TextField
             autocomplete="off"
             placeholder="Search images..."

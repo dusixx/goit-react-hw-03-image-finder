@@ -95,7 +95,6 @@ export class App extends Component {
 
         {/* Searchbar */}
         <Searchbar
-          height="70%"
           onSubmit={handleSearchSubmit}
           onChange={handleSearchQueryChange}
         />
