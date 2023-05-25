@@ -37,7 +37,6 @@ export class App extends Component {
     if (this.status === status.RESOLVED) {
       if (pbs.isEOSReached) {
         this.status = status.IDLE;
-
         return toast.info(hits.length ? MSG_EOS_REACHED : MSG_NO_SEARCH_RESULT);
       }
     }
