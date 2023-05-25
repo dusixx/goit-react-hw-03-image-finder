@@ -1,7 +1,8 @@
+import { bool, string } from 'prop-types';
 import { RotatingLines } from 'react-loader-spinner';
 import Modal from 'components/Modal/Modal';
 
-const COLOR_MODAL_BG = 'rgb(255 255 255 / 0.8)';
+const DEF_MODAL_BGCOLOR = 'rgb(255 255 255 / 0.8)';
 
 export const Spinner = props => (
   <RotatingLines
@@ -14,9 +15,18 @@ export const Spinner = props => (
   />
 );
 
-export const Loader = ({ visible }) =>
+export const Loader = ({
+  visible,
+  bgColor = DEF_MODAL_BGCOLOR,
+  ...restProps
+}) =>
   visible && (
-    <Modal bgColor={COLOR_MODAL_BG}>
-      <Spinner />
+    <Modal bgColor={bgColor}>
+      <Spinner {...restProps} />
     </Modal>
   );
+
+Loader.propTypes = {
+  visible: bool,
+  bgColor: string,
+};

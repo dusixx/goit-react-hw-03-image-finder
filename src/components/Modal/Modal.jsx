@@ -2,7 +2,7 @@ import { Component } from 'react';
 import { createPortal } from 'react-dom';
 import { func } from 'prop-types';
 import { Backdrop, Container } from './Modal.styled';
-import ScrollToggler from 'components/Modal/scrollToggler';
+import ScrollToggler from './scrollToggler';
 
 const scroll = new ScrollToggler();
 const rootModal = document.querySelector('#root-modal');
