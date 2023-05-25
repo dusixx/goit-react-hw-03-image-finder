@@ -102,15 +102,11 @@ export class App extends Component {
         />
 
         {/* Gallery */}
-        <ImageGallery hits={hits} style={{ marginBottom: '40px' }} />
+        <ImageGallery hits={hits} />
 
         {/* Load more */}
         {this.status !== status.IDLE && hits.length > 0 && (
-          <Button
-            type="button"
-            style={{ marginBottom: '20px' }}
-            onClick={() => fetchImages()}
-          >
+          <Button type="button" onClick={() => fetchImages()}>
             Load more
           </Button>
         )}

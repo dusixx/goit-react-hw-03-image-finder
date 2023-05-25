@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { FlexCentered } from 'styles/shared';
+import { CheckerboardBg, FlexCentered } from 'styles/shared';
 
 export const Link = styled.a`
   display: block;
@@ -13,6 +13,8 @@ export const Image = styled.img`
 
   object-fit: cover;
   object-position: center;
+
+  ${CheckerboardBg}
 `;
 
 export const Thumb = styled.div`
@@ -25,7 +27,6 @@ export const Thumb = styled.div`
 
     object-fit: cover;
     object-position: center;
-  }
 `;
 
 export const Desc = styled.p`

@@ -4,7 +4,9 @@ export const List = styled.ul`
   display: flex;
   flex-wrap: wrap;
   gap: var(--gallery-items-gap);
+
   margin-top: calc(var(--header-height) + 10px);
+  margin-bottom: 40px;
   width: 100%;
 `;
 
@@ -44,7 +46,7 @@ export const ListItem = styled.li`
 
   &:hover,
   &:focus-visible {
-    filter: brightness(1.1);
-    transform: scale(1.05);
+    filter: saturate(1.2);
+    transform: scale(1.04);
   }
 `;

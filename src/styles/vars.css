@@ -4,7 +4,7 @@
   --color-gray-lighter: #f1f1f1;
   --color-black: rgb(43, 43, 43);
   --color-text: var(var(--color-black));
-  --color-background: rgb(226, 226, 226);
+  --color-background: white; /* rgb(226, 226, 226); */
 
   --box-shadow: 0 1px 1px 1px rgb(202, 202, 202);
   --border-radius: 8px;

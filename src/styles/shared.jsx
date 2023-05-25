@@ -57,3 +57,26 @@ export const ButtonPrimary = styled(ButtonBase)`
     /* filter: brightness(1.1); */
   }
 `;
+
+export const CheckerboardBg = css`
+  background-image: linear-gradient(
+      45deg,
+      #efefef 25%,
+      transparent 0,
+      transparent 75%,
+      #efefef 0,
+      #efefef
+    ),
+    linear-gradient(
+      45deg,
+      #efefef 25%,
+      transparent 0,
+      transparent 75%,
+      #efefef 0,
+      #efefef
+    );
+
+  background-position: 0 0, 10px 10px;
+  background-color: #fff;
+  background-size: 21px 21px;
+`;
