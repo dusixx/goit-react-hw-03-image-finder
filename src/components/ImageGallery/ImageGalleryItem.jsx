@@ -34,7 +34,6 @@ export default class ImageGalleryItem extends Component {
     const { handleImageClick, handleModalClose, handleModalImgLoaded } = this;
     const { url, tags, preview } = this.props;
     const { clickedImage, showModal } = this.state;
-    // const style = { position: 'absolute', top: 0, left: 0 };
 
     return (
       <>
@@ -45,7 +44,7 @@ export default class ImageGalleryItem extends Component {
         {showModal && (
           <Modal onClose={handleModalClose} bgColor={COLOR_MODAL_BG}>
             <Container>
-              <Spinner width={40} />
+              <Spinner width={40} visible={!clickedImage.isLoaded} />
               <Thumb>
                 <img
                   src={clickedImage.url}
