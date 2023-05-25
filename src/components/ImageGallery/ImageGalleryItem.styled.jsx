@@ -21,7 +21,7 @@ export const Thumb = styled.div`
   position: absolute;
 
   & img {
-    height: 70vh;
+    height: 80vh;
     width: auto;
     max-width: 70vw;
 
