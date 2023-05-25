@@ -33,7 +33,7 @@ export default class ImageGalleryItem extends Component {
   render() {
     const { handleImageClick, handleModalClose, handleModalImgLoaded } = this;
     const { url, tags, preview } = this.props;
-    const { clickedImage, showModal } = this.state;
+    const { clickedImage: img, showModal } = this.state;
 
     return (
       <>
@@ -44,14 +44,14 @@ export default class ImageGalleryItem extends Component {
         {showModal && (
           <Modal onClose={handleModalClose} bgColor={COLOR_MODAL_BG}>
             <Container>
-              <Spinner width={40} visible={!clickedImage.isLoaded} />
+              <Spinner width={40} visible={!img.isLoaded} />
               <Thumb>
                 <img
-                  src={clickedImage.url}
-                  alt={clickedImage.tags}
+                  src={img.url}
+                  alt={img.tags}
                   onLoad={handleModalImgLoaded}
                 />
-                {clickedImage.isLoaded && <Desc>{clickedImage.tags}</Desc>}
+                {img.isLoaded && <Desc>{img.tags}</Desc>}
               </Thumb>
             </Container>
           </Modal>
