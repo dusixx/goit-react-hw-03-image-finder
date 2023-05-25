@@ -7,6 +7,7 @@ import { Container, Button } from './App.styled';
 import { Loader } from 'components/Loader';
 
 const pbs = new PixabayService();
+// orientation(all) imageType(all) order(most relevant)
 const initialQueryParams = { page: 1, perPage: 60, safesearch: true };
 
 const status = {
@@ -104,6 +105,7 @@ export class App extends Component {
 
         {/* Load more */}
         {this.status !== status.IDLE && hits.length > 0 && (
+          // () => fetchImages() чтобы избежать передачи e => {...}  в фукнцию
           <Button type="button" onClick={() => fetchImages()}>
             Load more
           </Button>
