@@ -29,7 +29,7 @@ export const Thumb = styled.div`
     object-position: center;
 `;
 
-export const Desc = styled.p`
+export const Overlay = styled.p`
   position: absolute;
   bottom: 0;
   left: 0;

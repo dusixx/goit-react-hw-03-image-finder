@@ -58,7 +58,6 @@ export class App extends Component {
   fetchImages = async params => {
     try {
       this.status = status.PENDING;
-
       const resp = await pbs.fetch(params);
 
       this.setState(cur => ({
