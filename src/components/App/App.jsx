@@ -34,7 +34,7 @@ export class App extends Component {
 
     if (this.status === status.IDLE) return;
 
-    if (this.state.status === status.RESOLVED) {
+    if (this.status === status.RESOLVED) {
       if (pbs.isEOSReached) {
         this.status = status.IDLE;
 
