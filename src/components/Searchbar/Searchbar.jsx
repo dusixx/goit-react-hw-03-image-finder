@@ -1,9 +1,8 @@
 import { Component } from 'react';
 import { oneOfType, string, number, func } from 'prop-types';
 import { BiSearch as IconSearch } from 'react-icons/bi';
-import { SearchBtn, SearchForm } from './Searchbar.styled';
+import { Header, SearchBtn, SearchForm } from './Searchbar.styled';
 import { TextField } from 'components/TextField';
-import { Header } from './Searchbar.styled';
 
 export default class Searchbar extends Component {
   static propTypes = {
