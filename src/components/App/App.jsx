@@ -1,10 +1,10 @@
 import { Component } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import { PixabayService } from 'components/utils';
-import Searchbar from 'components/Searchbar/Searchbar';
-import { ImageGallery } from 'components/ImageGallery/ImageGallery';
-import { Header, Container, Button } from './App.styled';
-import { Loader } from 'components/Loader/Loader';
+import Searchbar from 'components/Searchbar';
+import { ImageGallery } from 'components/ImageGallery';
+import { Container, Button } from './App.styled';
+import { Loader } from 'components/Loader';
 
 const pbs = new PixabayService();
 const initialQueryParams = { page: 1, perPage: 60, safesearch: true };
@@ -95,13 +95,11 @@ export class App extends Component {
         <Loader visible={this.status === status.PENDING} />
 
         {/* Searchbar */}
-        <Header>
-          <Searchbar
-            height="70%"
-            onSubmit={handleSearchSubmit}
-            onChange={handleSearchQueryChange}
-          />
-        </Header>
+        <Searchbar
+          height="70%"
+          onSubmit={handleSearchSubmit}
+          onChange={handleSearchQueryChange}
+        />
 
         {/* Gallery */}
         <ImageGallery hits={hits} style={{ marginBottom: '40px' }} />

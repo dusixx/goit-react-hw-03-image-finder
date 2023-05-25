@@ -24,7 +24,6 @@ export default class PixabayService {
   }
 
   /**
-   *
    * Формирует строку запроса к серверу, добавляя к baseUrl
    * параметры из #queryParams с именами в snake_case
    */
@@ -38,7 +37,6 @@ export default class PixabayService {
   }
 
   /**
-   *
    * Делает запрос на сервер с заданными параметрами
    * @param {*} params
    */
@@ -68,7 +66,6 @@ export default class PixabayService {
   }
 
   /**
-   *
    * Вернет объект {param_name: value,...}
    * c именами параметров запроса в snake_case без ключа
    */
@@ -80,7 +77,6 @@ export default class PixabayService {
   }
 
   /**
-   *
    * Валидации значений не происходит, допускается { page: 0, ... }
    * Можно задать объект валидации { paramName: validator = () => {...} }
    * @param {*} params - объект параметров или null
@@ -95,7 +91,6 @@ export default class PixabayService {
   }
 
   /**
-   *
    * Последний ответ от сервера или объект ошибки
    */
   get response() {
@@ -111,7 +106,6 @@ export default class PixabayService {
   }
 
   /**
-   *
    * Если был задан инкремент(!=0) в опциях -
    * возвращает страницу после инкрементации
    */

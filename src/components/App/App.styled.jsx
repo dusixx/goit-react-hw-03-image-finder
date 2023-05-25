@@ -1,18 +1,5 @@
 import styled from '@emotion/styled';
-import { FlexCentered, ButtonPrimary } from 'styles/shared';
-
-export const Header = styled.header`
-  ${FlexCentered()};
-
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 9;
-
-  width: 100%;
-  height: var(--header-height);
-  background-color: var(--color-black);
-`;
+import { ButtonPrimary } from 'styles/shared';
 
 export const Container = styled.div`
   display: flex;

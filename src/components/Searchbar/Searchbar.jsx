@@ -2,7 +2,8 @@ import { Component } from 'react';
 import { oneOfType, string, number, func } from 'prop-types';
 import { BiSearch as IconSearch } from 'react-icons/bi';
 import { SearchBtn, SearchForm } from './Searchbar.styled';
-import { TextField } from 'components/TextField/TextField';
+import { TextField } from 'components/TextField';
+import { Header } from './Searchbar.styled';
 
 export default class Searchbar extends Component {
   static propTypes = {
@@ -35,18 +36,20 @@ export default class Searchbar extends Component {
     const { searchQuery } = this.state;
 
     return (
-      <SearchForm width={width} height={height} onSubmit={handleFormSubmit}>
-        <TextField
-          autocomplete="off"
-          placeholder="Search images..."
-          onChange={handleSearchQueryChange}
-          value={searchQuery}
-          {...restProps} // (*)
-        />
-        <SearchBtn type="submit" disabled={!searchQuery}>
-          <IconSearch size="95%" />
-        </SearchBtn>
-      </SearchForm>
+      <Header>
+        <SearchForm width={width} height={height} onSubmit={handleFormSubmit}>
+          <TextField
+            autocomplete="off"
+            placeholder="Search images..."
+            onChange={handleSearchQueryChange}
+            value={searchQuery}
+            {...restProps} // (*)
+          />
+          <SearchBtn type="submit" disabled={!searchQuery}>
+            <IconSearch size="95%" />
+          </SearchBtn>
+        </SearchForm>
+      </Header>
     );
   }
 }

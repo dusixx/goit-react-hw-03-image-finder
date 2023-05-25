@@ -1,8 +1,8 @@
 import { Component } from 'react';
 import { string } from 'prop-types';
-import Modal from 'components/Modal/Modal';
+import Modal from 'components/Modal';
 import { Link, Image, Thumb, Desc, Container } from './ImageGalleryItem.styled';
-import { Spinner } from 'components/Loader/Loader';
+import { Spinner } from 'components/Loader';
 
 const COLOR_MODAL_BG = 'rgb(255 255 255 / 0.7)';
 

@@ -23,3 +23,16 @@ export const SearchForm = styled.form`
     width: 60%;
   }
 `;
+
+export const Header = styled.header`
+  ${FlexCentered()};
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9;
+
+  width: 100%;
+  height: var(--header-height);
+  background-color: var(--color-black);
+`;
