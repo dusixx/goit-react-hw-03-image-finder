@@ -13,45 +13,37 @@ export default class ImageGalleryItem extends Component {
     preview: string,
   };
 
-  state = { clickedImage: null, showModal: false };
+  state = { showModal: false, isLoaded: false };
 
   handleModalClose = () => {
     this.setState({ showModal: false });
   };
 
-  handleImageClick = (e, clickedImage) => {
+  handleImageClick = e => {
     e.preventDefault();
-    this.setState({ clickedImage, showModal: true });
+    this.setState({ showModal: true });
   };
 
-  handleModalImgLoaded = e => {
-    this.setState(cur => ({
-      clickedImage: { ...cur.clickedImage, isLoaded: true },
-    }));
-  };
+  handleModalImgLoaded = () => this.setState({ isLoaded: true });
 
   render() {
     const { handleImageClick, handleModalClose, handleModalImgLoaded } = this;
     const { url, tags, preview } = this.props;
-    const { clickedImage: img, showModal } = this.state;
+    const { showModal, isLoaded } = this.state;
 
     return (
       <>
-        <Link href={url} onClick={e => handleImageClick(e, { url, tags })}>
+        <Link href={url} onClick={handleImageClick}>
           <Image src={preview} alt={tags} loading="lazy" />
         </Link>
 
         {showModal && (
           <Modal onClose={handleModalClose} bgColor={COLOR_MODAL_BG}>
             <Container>
-              <Spinner width={40} visible={!img.isLoaded} />
+              <Spinner width={40} visible={!isLoaded} />
               <Thumb>
-                <img
-                  src={img.url}
-                  alt={img.tags}
-                  onLoad={handleModalImgLoaded}
-                />
-                {img.isLoaded && <Desc>{img.tags}</Desc>}
+                <img src={url} alt={tags} onLoad={handleModalImgLoaded} />
+                {isLoaded && <Desc>{tags}</Desc>}
               </Thumb>
             </Container>
           </Modal>
