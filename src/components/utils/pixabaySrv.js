@@ -44,7 +44,6 @@ export default class PixabayService {
     try {
       // обновляем параметры и делаем запрос на сервер
       const resp = await axios.get(this.buildQuery(params));
-
       resp.ok = true;
 
       // если задана page, инкрементируем ее, сохраняя текущую
@@ -56,9 +55,6 @@ export default class PixabayService {
       // error
     } catch (err) {
       this.#response = err;
-
-      // копируем в message более осмысленное сообщение
-      [err.message, err.message_] = [err.response.data, err.message];
 
       // если не прокидывать ошибку, надо анализировать response.ok
       if (this.options.throwFetchErrors) throw err;
