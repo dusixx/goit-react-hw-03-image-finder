@@ -7,7 +7,7 @@ import { Container, Button } from './App.styled';
 import { Loader } from 'components/Loader';
 
 const pbs = new PixabayService();
-// orientation(all) imageType(all) order(most relevant)
+// orientation: all, imageType: all, order: most relevant
 const initialQueryParams = { page: 1, perPage: 60, safesearch: true };
 
 const status = {
@@ -17,8 +17,10 @@ const status = {
   REJECTED: 'rejected',
 };
 
-const MSG_EOS_REACHED = 'End of search reached';
-const MSG_NO_SEARCH_RESULT = 'No matching search results';
+const message = {
+  EOS_REACHED: 'End of search reached',
+  NO_SEARCH_RESULT: 'No matching search results',
+};
 
 //
 // App
@@ -31,19 +33,21 @@ export class App extends Component {
   };
 
   componentDidUpdate(_, prevState) {
-    const { hits } = this.state;
-
     if (this.status === status.IDLE) return;
+
+    if (this.status === status.REJECTED) {
+      this.status = status.IDLE;
+      return;
+    }
 
     if (this.status === status.RESOLVED) {
       if (pbs.isEOSReached) {
         this.status = status.IDLE;
-        return toast.info(hits.length ? MSG_EOS_REACHED : MSG_NO_SEARCH_RESULT);
-      }
-    }
 
-    if (this.status === status.REJECTED) {
-      this.status = status.IDLE;
+        return this.state.hits.length
+          ? toast.info(message.EOS_REACHED)
+          : toast.warn(message.NO_SEARCH_RESULT);
+      }
     }
   }
 
