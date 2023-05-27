@@ -6,10 +6,6 @@ import Searchbar from 'components/Searchbar';
 import ImageGallery from 'components/ImageGallery';
 import Loader from 'components/Loader';
 
-//
-// App
-//
-
 export class App extends Component {
   state = {
     status: status.IDLE,
