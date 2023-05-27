@@ -1,13 +1,10 @@
 import { Component } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
-import { PixabayService } from 'components/utils';
 import Searchbar from 'components/Searchbar';
 import { ImageGallery } from 'components/ImageGallery';
-import { Container, Button } from './App.styled';
 import { Loader } from 'components/Loader';
-import { initialQueryParams, message, status } from './data';
-
-const pbs = new PixabayService();
+import { Container, Button } from './App.styled';
+import { initialQueryParams, message, status, pixabayService } from './data';
 
 //
 // App
@@ -27,7 +24,7 @@ export class App extends Component {
     }
 
     if (this.status === status.RESOLVED) {
-      if (pbs.isEOSReached) {
+      if (pixabayService.isEOSReached) {
         this.status = status.IDLE;
 
         return this.state.hits.length
@@ -48,7 +45,7 @@ export class App extends Component {
   fetchImages = async params => {
     try {
       this.status = status.PENDING;
-      const resp = await pbs.fetch(params);
+      const resp = await pixabayService.fetch(params);
 
       this.setState(cur => ({
         hits: [...cur.hits, ...resp.data.hits],
