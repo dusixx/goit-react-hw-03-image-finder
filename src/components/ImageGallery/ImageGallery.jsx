@@ -6,7 +6,7 @@ import { List, ListItem } from './ImageGallery.styled';
 // коллекция статична - берем в качестве id число
 let id = 0;
 
-export const ImageGallery = ({ hits, style }) => (
+const ImageGallery = ({ hits, style }) => (
   <List style={style}>
     {hits.map(({ webformatURL, largeImageURL, tags }) => (
       <ListItem key={id++}>
@@ -23,3 +23,5 @@ export const ImageGallery = ({ hits, style }) => (
 ImageGallery.propTypes = {
   hits: arrayOf(object),
 };
+
+export default ImageGallery;

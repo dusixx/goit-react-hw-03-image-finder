@@ -30,3 +30,5 @@ Loader.propTypes = {
   visible: bool,
   bgColor: string,
 };
+
+export default Loader;

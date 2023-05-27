@@ -1,10 +1,10 @@
 import { Component } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
-import Searchbar from 'components/Searchbar';
-import { ImageGallery } from 'components/ImageGallery';
-import { Loader } from 'components/Loader';
 import { Container, Button } from './App.styled';
 import { initialQueryParams, message, status, pixabayService } from './data';
+import Searchbar from 'components/Searchbar';
+import ImageGallery from 'components/ImageGallery';
+import Loader from 'components/Loader';
 
 //
 // App
