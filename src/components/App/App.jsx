@@ -5,22 +5,9 @@ import Searchbar from 'components/Searchbar';
 import { ImageGallery } from 'components/ImageGallery';
 import { Container, Button } from './App.styled';
 import { Loader } from 'components/Loader';
+import { initialQueryParams, message, status } from './data';
 
 const pbs = new PixabayService();
-// orientation: all, imageType: all, order: most relevant
-const initialQueryParams = { page: 1, perPage: 60, safesearch: true };
-
-const status = {
-  IDLE: 'idle',
-  PENDING: 'pending',
-  RESOLVED: 'resolved',
-  REJECTED: 'rejected',
-};
-
-const message = {
-  EOS_REACHED: 'End of search reached',
-  NO_SEARCH_RESULT: 'No matching search results',
-};
 
 //
 // App
@@ -67,7 +54,6 @@ export class App extends Component {
         hits: [...cur.hits, ...resp.data.hits],
         status: status.RESOLVED,
       }));
-
       // error
     } catch ({ message }) {
       this.status = status.REJECTED;
@@ -96,16 +82,13 @@ export class App extends Component {
       <Container>
         <Loader visible={this.status === status.PENDING} />
 
-        {/* Searchbar */}
         <Searchbar
           onSubmit={handleSearchSubmit}
           onChange={handleSearchQueryChange}
         />
 
-        {/* Gallery */}
         <ImageGallery hits={hits} />
 
-        {/* Load more */}
         {this.status !== status.IDLE && hits.length > 0 && (
           // () => fetchImages() чтобы избежать передачи e => {...}  в фукнцию
           <Button type="button" onClick={() => fetchImages()}>
