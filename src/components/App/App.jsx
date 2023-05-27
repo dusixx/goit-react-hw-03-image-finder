@@ -37,7 +37,6 @@ export class App extends Component {
 
     if (this.status === status.REJECTED) {
       this.status = status.IDLE;
-      return;
     }
 
     if (this.status === status.RESOLVED) {
